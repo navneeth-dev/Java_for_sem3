@@ -1,3 +1,5 @@
+import java.util.*;
+
 abstract class AbsArea {
     int a, b;
 
@@ -24,7 +26,7 @@ class rec extends AbsArea {
 }
 
 class tri extends AbsArea {
-    tri(int a, int b) {                                                                                            
+    tri(int a, int b) {
         super(a, b);
     }
 
@@ -45,13 +47,44 @@ class cir extends AbsArea {
 
 class Main {
     public static void main(String args[]) {
-        AbsArea r = new rec(3, 4);
+	System.out.println("This is the work of Navneeth KS\n1BM22CS174");
+        int x, y;
+        Scanner n = new Scanner(System.in);
+
+        // Input for rectangle dimensions (x and y) with validation
+        System.out.println("Give input for rectangle");
+        x = n.nextInt();
+        y = n.nextInt();
+        if (x < 0 || y < 0) {
+            System.out.println("Invalid input for rectangle. Please enter positive values.");
+            // You might want to handle this situation differently, such as asking the user to enter values again.
+            System.exit(1); // Exiting with status code 1 (indicating abnormal exit)
+        }
+
+        AbsArea r = new rec(x, y);
         r.area();
 
-        AbsArea t = new tri(4, 5);
+        // Input for triangle dimensions (x and y) with validation
+        System.out.println("Give input for triangle");
+        x = n.nextInt();
+        y = n.nextInt();
+        if (x < 0 || y < 0) {
+            System.out.println("Invalid input for triangle. Please enter positive values.");
+            System.exit(1);
+        }
+
+        AbsArea t = new tri(x, y);
         t.area();
 
-        AbsArea c = new cir(2); // Provide a radius value
+        // Input for circle radius (x) with validation
+        System.out.println("Give input for circle");
+        x = n.nextInt();
+        if (x < 0) {
+            System.out.println("Invalid input for circle. Please enter a positive value.");
+            System.exit(1);
+        }
+
+        AbsArea c = new cir(x);
         c.area();
     }
 }
