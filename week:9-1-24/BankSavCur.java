@@ -120,9 +120,9 @@ class Sav extends Account {
         return balance * (float) Math.pow(1.08, years);
     }
    
-    float penalty() {
+    void penalty() {
         System.out.println("Invalid methods\n");
-        return 0;
+    
     }
 
     void details() {
